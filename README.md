@@ -3,7 +3,11 @@
 ## Overview
 
 Kubernetes Cluster上で使用されているNodePortを表示します。  
-このツールによってどのNodePortがどのServiceで使われているかがわかります。
+このツールによってKubernetesのServiceの`type: NodePort`で使用しているポート番号がわかります。  
+
+## How to Install
+
+## Usage
 
 ## Author
 
