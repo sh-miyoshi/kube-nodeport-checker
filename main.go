@@ -32,6 +32,7 @@ func main(){
 	fmt.Println("Used NodePort List")
 	for _, service := range services.Items {
 		if service.Spec.Type == "NodePort" {
+			// a service may have multiple ports
 			for _, port := range service.Spec.Ports {
 				portName := "no name"
 				if port.Name != "" {
@@ -45,6 +46,7 @@ func main(){
 
 func newClient(kubeConfigPath string) (kubernetes.Interface, error) {
 	if kubeConfigPath == "" {
+		// use default path(.kube/config) when kubeconfig path is not set
 		kubeConfigPath = clientcmd.RecommendedHomeFile
 	}
 
