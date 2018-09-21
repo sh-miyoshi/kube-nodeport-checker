@@ -10,11 +10,12 @@ Kubernetes Cluster上で使用されているNodePortを表示します。
 
 1. go言語がインストール済みの場合
     - godep get
-    - make go_build
-    - ./kube-nodeport-checker --help
+    - make go\_build
+    - make install
+    - kube-nodeport-checker --help
 
 2. Dockerがインストール済みの場合
-    - make docker_build
+    - make docker\_build
     - docker run --rm -it -v ~/.kube/config:/root/.kube/config kube-nodeport-checker:latest kube-nodeport-checker --help
 
 ## Usage
@@ -22,9 +23,8 @@ Kubernetes Cluster上で使用されているNodePortを表示します。
 基本的にkube-nodeport-checkerコマンドを実行すると使用されているNodePortの一覧が出力されます。
 
 ```text
-./kube-nodeport-checker
+[root@server ~]# kube-nodeport-checker
 
-Used NodePort List
 30000: http (in nginx)
 30010: no name (in wekan)
 ```

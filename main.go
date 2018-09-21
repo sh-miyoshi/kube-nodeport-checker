@@ -29,7 +29,6 @@ func main(){
 		log.Fatal(err)
 	}
 
-	fmt.Println("Used NodePort List")
 	isAnyService := false
 	for _, service := range services.Items {
 		if service.Spec.Type == "NodePort" {
