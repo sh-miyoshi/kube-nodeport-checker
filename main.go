@@ -30,6 +30,7 @@ func main(){
 	}
 
 	fmt.Println("Used NodePort List")
+	isAnyService := false
 	for _, service := range services.Items {
 		if service.Spec.Type == "NodePort" {
 			// a service may have multiple ports
@@ -38,9 +39,13 @@ func main(){
 				if port.Name != "" {
 					portName = port.Name
 				}
+				isAnyService = true
 				fmt.Printf("%d: %s (in %s)\n", port.NodePort, portName, service.Name)
 			}
 		}
+	}
+	if(!isAnyService) {
+		fmt.Println("*) all NodePort are not used")
 	}
 }
 
