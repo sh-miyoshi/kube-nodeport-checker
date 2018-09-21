@@ -1,4 +1,4 @@
-FROM golang:1.10.4-alpine3.8
+FROM golang:1.11.0 AS builder
 
 RUN go get github.com/kr/godep
 
@@ -10,4 +10,11 @@ COPY main.go main.go
 
 RUN godep get
 
-CMD ["go", "run", "main.go", "--help"]
+RUN go build -o kube-nodeport-checker main.go
+
+
+
+FROM ubuntu:18.04
+COPY --from=builder /go/src/github.com/sh-miyoshi/kube-nodeport-checker/kube-nodeport-checker /usr/local/bin
+
+CMD ["kube-nodeport-checker", "--help"]
