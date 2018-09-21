@@ -29,7 +29,7 @@ Kubernetes Cluster上で使用されているNodePortを表示します。
 30010: no name (in wekan)
 ```
 
--kubeconfigオプションを指定した場合、kubernetes clusterにアクセスするためのconfigファイルの場所を指定できます。(指定しない場合は`~/.kube.config`ファイルが参照されます。)
+-kubeconfigオプションを指定した場合、kubernetes clusterにアクセスするためのconfigファイルの場所を指定できます。(指定しない場合は`~/.kube/config`ファイルが参照されます。)
 
 ## Author
 
