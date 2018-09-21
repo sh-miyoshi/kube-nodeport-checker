@@ -1,2 +1,3 @@
 Godeps/Readme
-vendor
+vendor/
+kube-nodeport-checker
