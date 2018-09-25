@@ -14,7 +14,10 @@ Kubernetes Cluster上で使用されているNodePortを表示します。
     - make install
     - kube-nodeport-checker --help
 
-2. Dockerがインストール済みの場合
+2. Dockerがインストール済みの場合(その1)
+    - docker run --rm -it -v ~/.kube/config:/root/.kube/config smiyoshi/kube-nodeport-checker kube-nodeport-checker --help
+
+3. Dockerがインストール済みの場合(その2)
     - make docker\_build
     - docker run --rm -it -v ~/.kube/config:/root/.kube/config kube-nodeport-checker:latest kube-nodeport-checker --help
 
@@ -24,7 +27,6 @@ Kubernetes Cluster上で使用されているNodePortを表示します。
 
 ```text
 [root@server ~]# kube-nodeport-checker
-
 30000: http (in nginx)
 30010: no name (in wekan)
 ```
