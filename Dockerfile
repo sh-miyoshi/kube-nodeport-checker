@@ -7,14 +7,12 @@ WORKDIR /go/src/github.com/sh-miyoshi/kube-nodeport-checker
 
 COPY Godeps Godeps
 COPY main.go main.go
-
 RUN godep get
-
 RUN go build -o kube-nodeport-checker main.go
 
 
 
-FROM ubuntu:18.04
+FROM alpine
 COPY --from=builder /go/src/github.com/sh-miyoshi/kube-nodeport-checker/kube-nodeport-checker /usr/local/bin
 
 CMD ["kube-nodeport-checker", "--help"]
